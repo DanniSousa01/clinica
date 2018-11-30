@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Clinica</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -47,6 +47,7 @@
                             <th>Data Nascimento</th>
                             <th>CPF</th>
                             <th>Sexo</th>
+                            <th>#</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,7 @@
                                 <td>{{cliente.dt_nasc}}</td>
                                 <td>{{cliente.cpf}}</td>
                                 <td>{{cliente.sexo}}</td>
+                                <td><a href="/atendimento/cliente/{{cliente.id}}">Ver</a></td>
                             </tr>
                         {% endfor %}
 
