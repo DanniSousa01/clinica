@@ -1,0 +1,24 @@
+
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-md-12 ">
+        <h1>Detalhes do Médico</h1>
+        <div>
+            <label>Nome: </label>
+            {{medico.nome}}
+        </div>
+        <div>
+            <label>Data Nascimento: </label>
+            {{medico.dt_nasc}}
+        </div>
+        <div>
+            <label>CPF: </label>
+            {{medico.cpf}}
+        </div>
+        <div>
+            <label>Sexo: </label>
+            {{medico.sexo}}
+        </div>
+    </div>
+</div>
+{% endblock %}
