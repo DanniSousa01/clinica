@@ -1,84 +1,39 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <title>Clientes</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Clinica</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="/atendimento/">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/atendimento/cliente/">Cliente</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/atendimento/medico/">Médicos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Agendamento</a>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Consulta</a>
-                    </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 ">
-                <h1>Listagem de Clientes</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Data Nascimento</th>
-                            <th>CPF</th>
-                            <th>Sexo</th>
-                            <th>#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for cliente in clientes %}
-                            <tr>
-                                <td>{{cliente.nome }}</td>
-                                <td>{{cliente.dt_nasc}}</td>
-                                <td>{{cliente.cpf}}</td>
-                                <td>{{cliente.sexo}}</td>
-                                <td><a href="/atendimento/cliente/{{cliente.id}}">Ver</a></td>
-                            </tr>
-                        {% endfor %}
-
-                    </tbody>
-                </table>
-                <tfoot>
-                    <td colspan="4" style="text-align: right;">
-                        <p> Foram encontrados {{clientes | length}} cadastrados !</p>
+{% extends "base.html" %} 
+{% block content %}
+<div class="row">
+    <div class="col-md-12 ">
+        <h1>Listagem de Clientes</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data Nascimento</th>
+                    <th>CPF</th>
+                    <th>Sexo</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.nome }}</td>
+                    <td>{{cliente.dt_nasc}}</td>
+                    <td>{{cliente.cpf}}</td>
+                    <td>{{cliente.sexo}}</td>
+                    <td>
+                        <a href="/atendimento/cliente/{{cliente.id}}">Ver</a>
                     </td>
-                </tfoot>
-            </div>
-        </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
+                </tr>
+                {% endfor %}
 
-</html>
+            </tbody>
+        </table>
+        <tfoot>
+            <td colspan="4" style="text-align: right;">
+                <p> Foram encontrados {{clientes | length}} cadastrados !</p>
+            </td>
+        </tfoot>
+    </div>
+</div>
+
+{% endblock %}
