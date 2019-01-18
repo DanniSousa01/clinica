@@ -1,24 +1,37 @@
-
-{% extends "base.html" %} {% block content %}
-<div class="row">
-    <div class="col-md-12 ">
-        <h1>Detalhes do Médico</h1>
-        <div>
-            <label>Nome: </label>
-            {{medico.nome}}
-        </div>
-        <div>
-            <label>Data Nascimento: </label>
-            {{medico.dt_nasc}}
-        </div>
-        <div>
-            <label>CPF: </label>
-            {{medico.cpf}}
-        </div>
-        <div>
-            <label>Sexo: </label>
-            {{medico.sexo}}
+ {% extends "base.html" %} {% block daniela %}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">
+                <i class="fa fa-laptop"></i> Detalhes do Médico</h3>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="/atendimento/">Home</a>
+                </li>
+                <li>
+                    <i class="fa fa-laptop"></i>Médico</li>
+            </ol>
         </div>
     </div>
-</div>
-{% endblock %}
+    <div class="row">
+        <div class="col-md-12 ">
+            <div>
+                <label>Nome: </label>
+                {{medico.nome}}
+            </div>
+            <div>
+                <label>Data Nascimento: </label>
+                {{medico.dt_nasc}}
+            </div>
+            <div>
+                <label>CPF: </label>
+                {{medico.cpf}}
+            </div>
+            <div>
+                <label>Sexo: </label>
+                {{medico.sexo}}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
