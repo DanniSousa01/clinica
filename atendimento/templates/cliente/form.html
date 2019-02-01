@@ -1,8 +1,34 @@
 {% extends "base.html" %} {% block daniela %}
-<form action="/atendimento/cliente/form/" method="POST">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="vai que cola..">
-</form>
+<div class="col-lg-12">
+    <section class="panel">
+        <header class="panel-heading">
+            Cadastro Cliente
+        </header>
+        <div class="panel-body">
+            <form action="/atendimento/medico/form/" method="POST">
+                {% csrf_token %}
 
+                <div class="form-group">
+                    <label for="{{form.nome.id_for_label}}">{{form.nome.label}}
+                    </label>
+                    {{form.nome}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.dt_nasc.id_for_label}}"> {{form.dt_nasc.label}} </label>
+                    {{form.dt_nasc}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.cpf.id_for_label}}">{{form.cpf.label}}</label>
+                    {{form.cpf}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.sexo.id_for_label}}"> {{form.sexo.label}} </label>
+                    {{form.sexo}}
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+
+        </div>
+    </section>
+</div>
 {% endblock %}

@@ -40,5 +40,5 @@ def medico_form (request):
 
         return redirect('/atendimento/medico/')
     else:    
-        form = ClienteForm()
+        form = MedicoForm()
         return render (request, 'medico/form.html',{'form':form})
