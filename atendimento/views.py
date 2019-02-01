@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from . models import Cliente,Medico
+from .forms import ClienteForm
 # Create your views here.
 
 def home (request):
@@ -21,3 +22,13 @@ def medico_list (request):
 def medico_show(request, medico_id):
     medico = Medico.objects.get(pk=medico_id)
     return render(request, 'medico/show.html', {'medico': medico})
+
+def cliente_form (request):
+    if(request.method == 'POST'):
+        form = ClienteForm(request.POST)
+        form.save()
+
+        return redirect('/atendimento/cliente/')
+    else:    
+        form = ClienteForm()
+        return render (request, 'cliente/form.html',{'form':form})
