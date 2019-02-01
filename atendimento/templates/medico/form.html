@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block daniela %}
+<form action="/atendimento/medico/form/" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="vai que cola..">
+</form>
+
+{% endblock %}
