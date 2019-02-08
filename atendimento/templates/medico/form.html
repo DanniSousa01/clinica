@@ -6,25 +6,44 @@
             Cadastro Médico
         </header>
         <div class="panel-body">
-            <form action="/atendimento/medico/form/" method="POST">
+            <form class="form-validate" action="/atendimento/medico/form/" method="POST">
                 {% csrf_token %}
 
                 <div class="form-group">
-                    <label for="{{form.nome.id_for_label}}">{{form.nome.label}}
-                    </label>
-                    {{form.nome}}
+                    <label for="{{form.nome.id_for_label}}">{{form.nome.label}}</label>
+                    <div>
+                        {{form.nome}} {% for error in form.nome.errors %}
+                        <label for="{{form.nome.id_for_label}}" class="error">{{error}}</label>
+                        {% endfor %}
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label for="{{form.dt_nasc.id_for_label}}"> {{form.dt_nasc.label}} </label>
-                    {{form.dt_nasc}}
+                    <div>
+                        {{form.dt_nasc}} {% for error in form.dt_nasc.errors %}
+                        <label for="{{form.dt_nasc.id_for_label}}" class="error">{{error}}</label>
+                        {% endfor %}
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label for="{{form.cpf.id_for_label}}">{{form.cpf.label}}</label>
-                    {{form.cpf}}
+                    <div>
+                        {{form.cpf}}{% for error in form.cpf.errors %}
+                        <label for="{{form.cpf.id_for_label}}">{{form.cpf.label}}</label>
+                        {% endfor %}
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label for="{{form.sexo.id_for_label}}"> {{form.sexo.label}} </label>
-                    {{form.sexo}}
+
+                    <div>
+                        {{form.sexo}}{% for error in form.sexo.errors %}
+                        <label for="{{form.sexo.id_for_label}}"> {{form.sexo.label}} </label>
+                        {% endfor %}
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

@@ -26,9 +26,12 @@ def medico_show(request, medico_id):
 def cliente_form (request):
     if(request.method == 'POST'):
         form = ClienteForm(request.POST)
-        form.save()
-
-        return redirect('/atendimento/cliente/')
+        if (form.is_valid()):
+            form.save()
+            return redirect('/atendimento/cliente/')
+        else: 
+            return render(request, 'cliente/form.html',{'form':form})
+  
     else:    
         form = ClienteForm()
         return render (request, 'cliente/form.html',{'form':form})
@@ -36,9 +39,11 @@ def cliente_form (request):
 def medico_form (request):
     if(request.method == 'POST'):
         form = MedicoForm(request.POST)
-        form.save()
-
-        return redirect('/atendimento/medico/')
+        if (form.is_valid()):
+            form.save()
+            return redirect('/atendimento/medico/')
+        else: 
+            return render (request, 'medico/form.html',{'form':form})
     else:    
         form = MedicoForm()
         return render (request, 'medico/form.html',{'form':form})
